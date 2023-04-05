@@ -3,11 +3,23 @@ version: '3'
 services:
 
   app:
-    container_name: youtack
+    container_name: youtrack_vul
     #network_mode: "host"
-    build: youtrack/.
+    build:
+        context: youtrack/.
+        dockerfile: Dockerfile-vulnerable
     ports:
       - "8080:8080"
+    networks:
+      - default
+
+  app2:
+    container_name: youtrack_base
+    build:
+      context: youtrack/.
+      dockerfile: Dockerfile-baseline
+    ports:
+      - "8081:8081"
     networks:
       - default
 
@@ -15,7 +27,7 @@ services:
   #    container_name: twig
   #    build:
   #      context: .
-  #      dockerfile: Dockerfile-spring4shell
+  #      dockerfile: twig/.
   #    depends_on:
   #      - db
   #    ports:

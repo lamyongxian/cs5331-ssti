@@ -70,13 +70,13 @@ pwd
 
 # Download Youtrack JARs
 echo "[+]" $( date +%T ) "Download Youtrack JARs"
-mkdir -p -m a=rwx /home/vagrant/youtrack >/dev/null 2>&1
-sudo curl --location --output /home/vagrant/youtrack/youtrack-2020.5.2579.jar https://download.jetbrains.com/charisma/youtrack-2020.5.2579.jar
-sudo curl --location --output /home/vagrant/youtrack/youtrack-2020.5.3123.jar https://download.jetbrains.com/charisma/youtrack-2020.5.3123.jar
+mkdir -p -m a=rwx /vagrant/youtrack >/dev/null 2>&1
+sudo curl --location --output /vagrant/youtrack/youtrack-2020.5.2579.jar https://download.jetbrains.com/charisma/youtrack-2020.5.2579.jar
+sudo curl --location --output /vagrant/youtrack/youtrack-2020.5.3123.jar https://download.jetbrains.com/charisma/youtrack-2020.5.3123.jar
 
 # Docker compose
 echo "[+]" $( date +%T ) "Run Docker Compose"
-cd /vagrant/cs5331-ssti && pwd
+#cd /vagrant/cs5331-ssti && pwd
 sudo docker-compose -f /vagrant/docker-compose.yml up --build -d
 
 echo "Success"
