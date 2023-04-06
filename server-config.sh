@@ -51,8 +51,8 @@ sudo ufw allow 8080 >/dev/null 2>&1
 sudo ufw allow 80 >/dev/null 2>&1
 
 # Install Maven
-#echo "[+]" $( date +%T ) "Install Maven"
-#sudo apt -y install maven >/dev/null 2>&1
+echo "[+]" $( date +%T ) "Install Maven"
+sudo apt -y install maven >/dev/null 2>&1
 
 # Reboot
 #echo "[+]" $( date +%T ) "Rebooting..."
@@ -65,8 +65,8 @@ sudo ufw allow 80 >/dev/null 2>&1
 pwd
 
 # Run Maven
-#echo "[+]" $( date +%T ) "Run Maven Package"
-#cd /home/vagrant/cs5331-ssti && sudo mvn clean package -DskipTests >/dev/null 2>&1
+echo "[+]" $( date +%T ) "Run Maven Package"
+cd /vagrant/cs5331-ssti/freemarker/CS5331SSTI/ && sudo mvn clean package -DskipTests >/dev/null 2>&1
 
 # Download Youtrack JARs
 echo "[+]" $( date +%T ) "Download Youtrack JARs"

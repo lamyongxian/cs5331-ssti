@@ -23,7 +23,15 @@ services:
     networks:
       - default
 
-  #app2:
+  app3:
+    container_name: freemarker
+    build: freemarker/.
+    ports:
+      - "8082:8080"
+    networks:
+      - default
+
+  #app4:
   #    container_name: twig
   #    build:
   #      context: .
