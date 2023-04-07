@@ -65,8 +65,8 @@ sudo apt -y install maven >/dev/null 2>&1
 pwd
 
 # Run Maven
-echo "[+]" $( date +%T ) "Run Maven Package"
-cd /vagrant/cs5331-ssti/freemarker/CS5331SSTI/ && sudo mvn clean package -DskipTests >/dev/null 2>&1
+#echo "[+]" $( date +%T ) "Run Maven Package"
+#cd /vagrant/freemarker/CS5331SSTI/ && sudo mvn clean package -DskipTests >/dev/null 2>&1
 
 # Download Youtrack JARs
 echo "[+]" $( date +%T ) "Download Youtrack JARs"
