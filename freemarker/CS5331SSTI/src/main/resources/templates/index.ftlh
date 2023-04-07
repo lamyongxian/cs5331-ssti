@@ -11,7 +11,12 @@
         </fieldset>
         </div>
         <div id="display">
-            ${value}
+            <p>
+                Value: ${value}
+            </p>
+        </div>
+        <div id="nav">
+            Login as <a href="admin">admin</a>
         </div>
     </body>
 </html>

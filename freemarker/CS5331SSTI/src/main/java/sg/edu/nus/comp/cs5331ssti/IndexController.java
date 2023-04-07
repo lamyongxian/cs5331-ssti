@@ -1,6 +1,5 @@
 package sg.edu.nus.comp.cs5331ssti;
 
-import jakarta.servlet.ServletContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,9 +12,6 @@ import java.nio.charset.StandardCharsets;
 
 @Controller
 public class IndexController {
-
-    @Autowired
-    private ServletContext context;
 
     @GetMapping({"/", "/index"})
     public String index(Model model,
