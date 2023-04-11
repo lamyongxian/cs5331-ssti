@@ -1,10 +1,17 @@
-FROM tomcat:9.0
-COPY . /vagrant
-ENTRYPOINT ["java","-jar","/vagrant/youtrack/youtrack-2020.5.2579.jar", "--no-browser", "8080"]
-#RUN java -jar /vagrant/youtrack/youtrack-2020.5.2579.jar --no-browser 8080/youtrack
+FROM php:8.0-apache
 
-#COPY /target/xxx.war /usr/local/tomcat/webapps/
-#COPY /target/xxx.war /var/lib/tomcat9/webapps/
-#COPY /tomcat/ /usr/local/tomcat/webapps/ROOT/
+COPY ./ /var/www/html
+RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
+RUN sed -i 's/allow_url_include = Off//g' "$PHP_INI_DIR/php.ini"
+RUN echo "allow_url_include = On" >> "$PHP_INI_DIR/php.ini"
 
-#ENTRYPOINT ["catalina.sh", "run"]
+RUN apt-get update && apt-get install -y \
+    libldap2-dev
+RUN docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu/
+RUN docker-php-ext-install ldap
+RUN echo "extension=php_ldap.so" >> "$PHP_INI_DIR/php.ini"
+
+#EXPOSE 8080
+
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+RUN service apache2 restart
