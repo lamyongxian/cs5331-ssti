@@ -26,6 +26,8 @@ services:
   app3:
     container_name: freemarker
     build: freemarker/.
+    #security_opt:
+    #  - seccomp:freemarker/seccomp.json
     ports:
       - "8082:8080"
     networks:

@@ -16,19 +16,17 @@ public class FreeMarkerConfig {
         // Set the FreeMarker template loader
         configurer.setTemplateLoaderPath("classpath:/templates/");
 
-        // Set the failOnMissingTemplate property to true
-        Properties properties = new Properties();
-        properties.setProperty("template_exception_handler", "rethrow");
-        properties.setProperty("default_encoding", "UTF-8");
-        properties.setProperty("url_escaping_charset", "UTF-8");
-
-        // Disallow non-existent template
+        // Set the failOnMissingTemplate property to true, Disallow non-existent template
+        //Properties properties = new Properties();
+        //properties.setProperty("template_exception_handler", "rethrow");
+        //properties.setProperty("default_encoding", "UTF-8");
+        //properties.setProperty("url_escaping_charset", "UTF-8");
         //properties.setProperty("fail_on_missing_template", "true");
 
-        // Do not load any template classes (Not working)
-        properties.setProperty("template_class_resolver", "freemarker.core.TemplateClassResolver.ALLOWS_NOTHING_RESOLVER");
+        // Do not load any template classes (Not working - Use application.properties)
+        // properties.setProperty("template_class_resolver", "freemarker.core.TemplateClassResolver.ALLOWS_NOTHING_RESOLVER");
 
-        configurer.setFreemarkerSettings(properties);
+        //configurer.setFreemarkerSettings(properties);
 
 
         return configurer;
