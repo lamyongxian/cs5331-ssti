@@ -1,0 +1,66 @@
+grant {
+    permission java.security.SecurityPermission "createAccessControlContext";
+    permission java.util.PropertyPermission "log4j2.contextSelector", "write";
+    permission java.lang.RuntimePermission "setContextClassLoader";
+    permission java.lang.RuntimePermission "createClassLoader";
+    permission java.lang.RuntimePermission "getenv.*", "read";
+    permission java.util.PropertyPermission "*", "read,write";
+    permission java.lang.management.ManagementPermission "monitor";
+    permission javax.management.MBeanServerPermission "createMBeanServer";
+    permission javax.management.MBeanPermission "-#-[-]", "queryNames";
+    permission javax.management.MBeanPermission "org.apache.logging.log4j.core.jmx.LoggerContextAdmin#-[org.apache.logging.log4j2:type=Default]", "registerMBean";
+    permission javax.management.MBeanPermission "org.apache.logging.log4j.core.jmx.StatusLoggerAdmin#-[org.apache.logging.log4j2:component=StatusLogger,type=Default]", "registerMBean";
+    permission javax.management.MBeanTrustPermission "register";
+    permission javax.management.MBeanPermission "org.apache.logging.log4j.core.jmx.ContextSelectorAdmin#-[org.apache.logging.log4j2:component=ContextSelector,type=Default]", "registerMBean";
+    permission javax.management.MBeanPermission "org.apache.logging.log4j.core.jmx.LoggerConfigAdmin#-[org.apache.logging.log4j2:component=Loggers,name=,type=Default]", "registerMBean";
+    permission javax.management.MBeanPermission "org.apache.logging.log4j.core.jmx.AppenderAdmin#-[org.apache.logging.log4j2:component=Appenders,name=CONSOLE,type=Default]", "registerMBean";
+
+
+    permission java.util.PropertyPermission "*", "read";
+    permission java.util.PropertyPermission "java.version", "read";
+    permission java.util.PropertyPermission "java.vendor", "read";
+    permission java.util.PropertyPermission "java.vendor.url", "read";
+    permission java.util.PropertyPermission "java.class.version", "read";
+    permission java.util.PropertyPermission "os.name", "read";
+    permission java.util.PropertyPermission "os.version", "read";
+    permission java.util.PropertyPermission "os.arch", "read";
+    permission java.util.PropertyPermission "file.separator", "read";
+    permission java.util.PropertyPermission "path.separator", "read";
+    permission java.util.PropertyPermission "line.separator", "read";
+    permission java.util.PropertyPermission "java.specification.version", "read";
+    permission java.util.PropertyPermission "java.specification.vendor", "read";
+    permission java.util.PropertyPermission "java.specification.name", "read";
+    permission java.util.PropertyPermission "java.vm.specification.version", "read";
+    permission java.util.PropertyPermission "java.vm.specification.vendor", "read";
+    permission java.util.PropertyPermission "java.vm.specification.name", "read";
+    permission java.util.PropertyPermission "java.vm.version", "read";
+    permission java.util.PropertyPermission "java.vm.vendor", "read";
+    permission java.util.PropertyPermission "java.vm.name", "read";
+    permission java.io.FilePermission "<<ALL FILES>>", "read";
+    permission java.io.FilePermission "<<ALL FILES>>", "write";
+    permission java.io.FilePermission "<<ALL FILES>>", "delete";
+    permission java.lang.RuntimePermission "accessClassInPackage.sun.reflect";
+    permission java.lang.RuntimePermission "accessDeclaredMembers";
+    permission java.lang.reflect.ReflectPermission "suppressAccessChecks";
+    permission java.security.SecurityPermission "getProperty.ssl.SocketFactory.provider";
+    permission java.net.SocketPermission "*", "connect,resolve";
+    permission java.net.SocketPermission "localhost:1024-", "listen";
+    permission java.net.SocketPermission "localhost:1024-", "accept";
+    permission java.net.SocketPermission "localhost:1024-", "connect";
+    permission java.net.SocketPermission "*", "accept,connect,listen,resolve";
+    permission java.net.URLPermission "http://192.168.56.10", "connect,accept,listen,resolve";
+    permission java.lang.RuntimePermission "modifyThread";
+    permission java.lang.RuntimePermission "stopThread";
+    permission java.lang.RuntimePermission "modifyThreadGroup";
+    permission java.lang.RuntimePermission "getProtectionDomain";
+    permission java.lang.RuntimePermission "setDefaultUncaughtExceptionHandler";
+    permission java.lang.RuntimePermission "modifyThreadGroup";
+    permission java.lang.RuntimePermission "setSecurityManager";
+    permission java.security.SecurityPermission "getPolicy";
+    permission java.util.logging.LoggingPermission "control";
+};
+
+grant codeBase "file:youtrack-2020.5.2579.jar" {
+    permission java.lang.RuntimePermission "getClassLoader";
+};
+
