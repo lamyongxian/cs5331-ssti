@@ -3,27 +3,33 @@ package sg.edu.nus.comp.cs5331ssti;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.security.ProtectionDomain;
 
 @Controller
 public class IndexController {
 
+    private Article article = new Article();
+
     @GetMapping({"/", "/index"})
-    public String index(Model model,
-                        @RequestParam(value="value", required=false, defaultValue="Nothing...") String value) {
-        model.addAttribute("value", value);
-        return "index";
+    public ModelAndView index() {
+        //model.addAttribute("value", value);
+        //model.addAttribute("article", this.article);
+        ModelAndView mv = new ModelAndView ("index");
+        mv.addObject("article", this.article);
+        ClassLoader c = article.getClass().getProtectionDomain().getClassLoader();
+        return mv;
     }
 
     @PostMapping(value = "/index")
-    public String indexPost(Model model,
-                        @RequestParam(value="value", required=false, defaultValue="Nothing...") String value) {
-        model.addAttribute("value", value);
+    public String indexPost(Article article) {
+        ModelAndView mv = new ModelAndView ("index");
+        //model.addAttribute("value", value);
+        mv.addObject("article", article);
 
         return "index";
     }

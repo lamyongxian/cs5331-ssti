@@ -5,14 +5,14 @@
         <fieldset>
             <legend>Enter Value</legend>
             <form name="form1" action="index" method="post">
-                <input type="text" name="value"/>
+                <input type="text" name="text" id="text"/>
                 <input type="submit" value="Submit" />
             </form>
         </fieldset>
         </div>
         <div id="display">
             <p>
-                Value: ${value}
+                Value: ${article.text}
             </p>
         </div>
         <div id="nav">
