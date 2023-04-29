@@ -12,22 +12,12 @@ public class FreeMarkerConfig {
     @Bean
     public FreeMarkerConfigurer freeMarkerConfigurer() {
         FreeMarkerConfigurer configurer = new FreeMarkerConfigurer();
+        configurer.setTemplateLoaderPath("classpath:/templates");
 
-        // Set the FreeMarker template loader
-        configurer.setTemplateLoaderPath("classpath:/templates/");
-
-        // Set the failOnMissingTemplate property to true, Disallow non-existent template
-        //Properties properties = new Properties();
-        //properties.setProperty("template_exception_handler", "rethrow");
-        //properties.setProperty("default_encoding", "UTF-8");
-        //properties.setProperty("url_escaping_charset", "UTF-8");
-        //properties.setProperty("fail_on_missing_template", "true");
-
-        // Do not load any template classes (Not working - Use application.properties)
-        // properties.setProperty("template_class_resolver", "freemarker.core.TemplateClassResolver.ALLOWS_NOTHING_RESOLVER");
-
-        //configurer.setFreemarkerSettings(properties);
-
+        // Set ALLOW_NOTHING_RESOLVER to block freemarker.template.utility.Execute instantiating
+        Properties settings = new Properties();
+        //settings.setProperty("new_builtin_class_resolver", "allows_nothing"); // Comment to disable setting
+        configurer.setFreemarkerSettings(settings);
 
         return configurer;
     }
