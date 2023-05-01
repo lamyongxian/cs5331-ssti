@@ -2,6 +2,10 @@
 <head><title>SSTI</title></head>
 <body>
     <div id="form">
+        <div>
+            ${msg}
+        </div>
+        <p>Powered by OWASP ESAPI.</p>
         <fieldset>
             <legend>Update Index Template Safe</legend>
             <form name="form1" action="adminsafe" method="post">

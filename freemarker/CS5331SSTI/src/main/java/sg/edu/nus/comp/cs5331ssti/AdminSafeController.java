@@ -4,7 +4,9 @@ import org.owasp.esapi.errors.IntrusionException;
 import org.owasp.esapi.errors.ValidationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.owasp.esapi.ESAPI;
@@ -33,11 +35,11 @@ public class AdminSafeController {
         // Sanitize template input
         String safeValue = "";
         try {
-            safeValue = ESAPI.validator().getValidInput("index_ftlh", value, "BashCommand", 4096, false);
-
+            safeValue = ESAPI.validator().getValidSafeHTML("index_ftlh", value, 4096, false);
         } catch (ValidationException e) {
+            model.addAttribute("msg", e.getMessage());
         } catch (IntrusionException e) {
-
+            model.addAttribute("msg", e.getMessage());
         }
 
         File file = new File(this.getClass().getClassLoader().getResource(".").getFile() + "templates/index.ftlh");
@@ -67,5 +69,4 @@ public class AdminSafeController {
 
         return "adminsafe";
     }
-
 }
