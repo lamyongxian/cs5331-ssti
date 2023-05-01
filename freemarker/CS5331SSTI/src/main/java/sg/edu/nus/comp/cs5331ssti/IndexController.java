@@ -1,5 +1,7 @@
 package sg.edu.nus.comp.cs5331ssti;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -7,7 +9,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class IndexController {
 
-    private Article article = new Article();
+    @Autowired
+    private Article article;
 
     @GetMapping({"/", "/index"})
     public ModelAndView index() {
@@ -17,10 +20,9 @@ public class IndexController {
     }
 
     @PostMapping(value = "/index")
-    public ModelAndView indexPost(Article article) {
+    public ModelAndView indexPost(@ModelAttribute("article") Article article, Model model) {
         ModelAndView mv = new ModelAndView ("index");
         mv.addObject("article", article);
         return mv;
     }
-
 }
