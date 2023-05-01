@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Cs5331SstiApplication (spring-security)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <option name="ACTIVE_PROFILES" value="spring-security" />
+    <module name="CS5331SSTI" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="sg.edu.nus.comp.cs5331ssti.Cs5331SstiApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
