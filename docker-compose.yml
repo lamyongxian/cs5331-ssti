@@ -41,6 +41,18 @@ services:
     networks:
       - default
 
+  app5:
+    container_name: freemarker_spring_filter
+    build:
+      context: freemarker/.
+      dockerfile: Dockerfile-spring-security
+    #security_opt:
+    #  - seccomp:freemarker/seccomp.json
+    ports:
+      - "8084:8080"
+    networks:
+      - default
+
 volumes:
   db:
     driver: local
